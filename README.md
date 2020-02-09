@@ -10,6 +10,25 @@ of headache with the amount of problems springing up.
 I ended up gaining a deeper appreciation for MD5 hashes, character encodings, and Regular Expressions, along with 
 a dip into file I/O with Python, my intended goal. 
 
+# How It Works
+The script creates a directory for the music files to go into. It then uses three things from Osu! to get those music files: 
+
+the osu!.db file that contains all the information of each beatmap in the game
+the collection.db file that contains all the MD5 hashes of the beatmaps in your collections, and the name of that collection
+the "Songs" folder that contains all the beatmaps themselves; the beatmaps are folders that contain a .mp3, pictures and/or
+sound effects, and .osu files that contain the postions and timing of circles to click, the beatmap itself. 
+
+The script first creates a list of hashes from the collection.db folder using a regular expression. 
+
+Then it opens the osu!.db folder using latin-1 encoding so that the file can properly be intrepreted as text. 
+
+A list of song folder names get created by matching the MD5 hash to the corresponding area the name and artist would be in the
+binary. From here, a regex corresponding to the size of the beatmap, the artist, and the song name returns the relevant 
+information, and that information gets put in a list. 
+
+After all the hashes get matched, the script then loops through the folder names and searches and copies the mp3s into
+the directory at the beginning, and exits.
+
 # Issues and Plans
 This program is intended to run on a terminal using a command line. I don't plan on adding a GUI.
 
