@@ -102,9 +102,6 @@ def main():
     for i in range(len(folderNames)):
         smallNames.append(re.search(r' [\w\-()\\\/!? \.,`~@#$%^&*\[\]{}\|\'\"]+ - [\w\-()\\\/!? \.,`~@#$%^&*\[\]{}\|\'\"]{3}',folderNames[i]).group(0))
 
-    #print("There are " + str(len(folderNames)) + " folder names\n\n\n\n\n")
-    #print(*folderNames, sep = '\n')
-    #print(*smallNames, sep = '\n')
 
     collectionFile.close()
 
